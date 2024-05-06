@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SQLProcess module &mdash; mysql_for_dataTrade 1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f115507d"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=beaddf03"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mysql_for_dataTrade
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">SQLProcess module</a><ul>
+<li><a class="reference internal" href="#SQLProcess.SQLProcess"><code class="docutils literal notranslate"><span class="pre">SQLProcess</span></code></a><ul>
+<li><a class="reference internal" href="#SQLProcess.SQLProcess.host"><code class="docutils literal notranslate"><span class="pre">SQLProcess.host</span></code></a></li>
+<li><a class="reference internal" href="#SQLProcess.SQLProcess.user"><code class="docutils literal notranslate"><span class="pre">SQLProcess.user</span></code></a></li>
+<li><a class="reference internal" href="#SQLProcess.SQLProcess.password"><code class="docutils literal notranslate"><span class="pre">SQLProcess.password</span></code></a></li>
+<li><a class="reference internal" href="#SQLProcess.SQLProcess.database"><code class="docutils literal notranslate"><span class="pre">SQLProcess.database</span></code></a></li>
+<li><a class="reference internal" href="#SQLProcess.SQLProcess.delete"><code class="docutils literal notranslate"><span class="pre">SQLProcess.delete()</span></code></a></li>
+<li><a class="reference internal" href="#SQLProcess.SQLProcess.disconnect"><code class="docutils literal notranslate"><span class="pre">SQLProcess.disconnect()</span></code></a></li>
+<li><a class="reference internal" href="#SQLProcess.SQLProcess.insert"><code class="docutils literal notranslate"><span class="pre">SQLProcess.insert()</span></code></a></li>
+<li><a class="reference internal" href="#SQLProcess.SQLProcess.insertRow"><code class="docutils literal notranslate"><span class="pre">SQLProcess.insertRow()</span></code></a></li>
+<li><a class="reference internal" href="#SQLProcess.SQLProcess.runCommand"><code class="docutils literal notranslate"><span class="pre">SQLProcess.runCommand()</span></code></a></li>
+<li><a class="reference internal" href="#SQLProcess.SQLProcess.select"><code class="docutils literal notranslate"><span class="pre">SQLProcess.select()</span></code></a></li>
+<li><a class="reference internal" href="#SQLProcess.SQLProcess.update"><code class="docutils literal notranslate"><span class="pre">SQLProcess.update()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#SQLProcess.convertItem"><code class="docutils literal notranslate"><span class="pre">convertItem()</span></code></a></li>
+<li><a class="reference internal" href="#SQLProcess.convertRow"><code class="docutils literal notranslate"><span class="pre">convertRow()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mysql_for_dataTrade</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SQLProcess module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/rst/SQLProcess.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-SQLProcess">
+<span id="sqlprocess-module"></span><h1>SQLProcess module<a class="headerlink" href="#module-SQLProcess" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="SQLProcess.SQLProcess">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SQLProcess.</span></span><span class="sig-name descname"><span class="pre">SQLProcess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'localhost'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'root'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'root'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DataTrade'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SQLProcess.SQLProcess" title="Link to this definition"></a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>SQL操作类</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SQLProcess.SQLProcess.host">
+<span class="sig-name descname"><span class="pre">host</span></span><a class="headerlink" href="#SQLProcess.SQLProcess.host" title="Link to this definition"></a></dt>
+<dd><p>MySQL地址</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SQLProcess.SQLProcess.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#SQLProcess.SQLProcess.user" title="Link to this definition"></a></dt>
+<dd><p>MySQL用户名</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SQLProcess.SQLProcess.password">
+<span class="sig-name descname"><span class="pre">password</span></span><a class="headerlink" href="#SQLProcess.SQLProcess.password" title="Link to this definition"></a></dt>
+<dd><p>MySQL密码</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SQLProcess.SQLProcess.database">
+<span class="sig-name descname"><span class="pre">database</span></span><a class="headerlink" href="#SQLProcess.SQLProcess.database" title="Link to this definition"></a></dt>
+<dd><p>MySQL数据库名</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Dependencies:</dt><dd><p>pymysql</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="SQLProcess.SQLProcess.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tableName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SQLProcess.SQLProcess.delete" title="Link to this definition"></a></dt>
+<dd><p>MySQL的删除操作</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tableName</strong> – 目标数据表</p></li>
+<li><p><strong>condition</strong> – delete行需满足的条件</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQLProcess.SQLProcess.disconnect">
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SQLProcess.SQLProcess.disconnect" title="Link to this definition"></a></dt>
+<dd><p>断开MySQL连接</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQLProcess.SQLProcess.insert">
+<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tableName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columnNames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selectCondition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insertSeparately</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">judgeDuplicatedKey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elseUpdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SQLProcess.SQLProcess.insert" title="Link to this definition"></a></dt>
+<dd><p>MySQL插入操作</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tableName</strong> – 目标数据表</p></li>
+<li><p><strong>columnNames</strong> – 目标列名</p></li>
+<li><p><strong>values</strong> – 插入的值的二维数组</p></li>
+<li><p><strong>selectCondition</strong> – 插入的select语句</p></li>
+<li><p><strong>insertSeparately</strong> – 是否对values的每一行逐行插入</p></li>
+<li><p><strong>judgeDuplicatedKey</strong> – 是否需判定主键是否重复</p></li>
+<li><p><strong>elseUpdate</strong> – 如果主键重复，执行elseUpdate更新</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQLProcess.SQLProcess.insertRow">
+<span class="sig-name descname"><span class="pre">insertRow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tableName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columnNames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">judgeDuplicatedKey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elseUpdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SQLProcess.SQLProcess.insertRow" title="Link to this definition"></a></dt>
+<dd><p>插入一行数据</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tableName</strong> – 目标数据表</p></li>
+<li><p><strong>columnNames</strong> – 目标列名数组</p></li>
+<li><p><strong>value</strong> – 插入的值的数组</p></li>
+<li><p><strong>judgeDuplicatedKey</strong> – 是否需判定主键是否重复</p></li>
+<li><p><strong>elseUpdate</strong> – 如果主键重复，执行elseUpdate更新</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQLProcess.SQLProcess.runCommand">
+<span class="sig-name descname"><span class="pre">runCommand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SQLProcess.SQLProcess.runCommand" title="Link to this definition"></a></dt>
+<dd><p>执行MySQL命令command</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>command</strong> – MySQL命令</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQLProcess.SQLProcess.select">
+<span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tableName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columnNames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joinCondition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notSearch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SQLProcess.SQLProcess.select" title="Link to this definition"></a></dt>
+<dd><p>MySQL的select操作</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tableName</strong> – 目标数据表</p></li>
+<li><p><strong>columnNames</strong> – 目标列名</p></li>
+<li><p><strong>condition</strong> – select行需满足的条件</p></li>
+<li><p><strong>notSearch</strong> – 不执行select，只返回查询语句</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>(results, queryString)，其中results为查询结果，queryString为查询语句</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQLProcess.SQLProcess.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tableName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columnName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SQLProcess.SQLProcess.update" title="Link to this definition"></a></dt>
+<dd><p>MySQL的update操作</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tableName</strong> – 目标数据表</p></li>
+<li><p><strong>columnName</strong> – 目标列名</p></li>
+<li><p><strong>value</strong> – 插入的值的二维数组</p></li>
+<li><p><strong>condition</strong> – update行需满足的条件</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="SQLProcess.convertItem">
+<span class="sig-prename descclassname"><span class="pre">SQLProcess.</span></span><span class="sig-name descname"><span class="pre">convertItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SQLProcess.convertItem" title="Link to this definition"></a></dt>
+<dd><p>将python数据转换为SQL所需
+:param item: 输入的python数据</p>
+<dl class="field-list simple">
+<dt class="field-odd">返回<span class="colon">:</span></dt>
+<dd class="field-odd"><p>转换后的MySQL输入字符串</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="SQLProcess.convertRow">
+<span class="sig-prename descclassname"><span class="pre">SQLProcess.</span></span><span class="sig-name descname"><span class="pre">convertRow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SQLProcess.convertRow" title="Link to this definition"></a></dt>
+<dd><p>将python行数据转换为SQL所需
+:param row: 输入的python输入数组</p>
+<dl class="field-list simple">
+<dt class="field-odd">返回<span class="colon">:</span></dt>
+<dd class="field-odd"><p>转换后的MySQL输入字符串</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2024, Jiandong Liu。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

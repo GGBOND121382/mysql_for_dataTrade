@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DataTradeFileSys module &mdash; mysql_for_dataTrade 1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f115507d"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=beaddf03"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mysql_for_dataTrade
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">DataTradeFileSys module</a><ul>
+<li><a class="reference internal" href="#DataTradeFileSys.DataTradeFileSys"><code class="docutils literal notranslate"><span class="pre">DataTradeFileSys</span></code></a><ul>
+<li><a class="reference internal" href="#DataTradeFileSys.DataTradeFileSys.host"><code class="docutils literal notranslate"><span class="pre">DataTradeFileSys.host</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeFileSys.DataTradeFileSys.user"><code class="docutils literal notranslate"><span class="pre">DataTradeFileSys.user</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeFileSys.DataTradeFileSys.password"><code class="docutils literal notranslate"><span class="pre">DataTradeFileSys.password</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeFileSys.DataTradeFileSys.database"><code class="docutils literal notranslate"><span class="pre">DataTradeFileSys.database</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeFileSys.DataTradeFileSys.addData"><code class="docutils literal notranslate"><span class="pre">DataTradeFileSys.addData()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeFileSys.DataTradeFileSys.addDatas"><code class="docutils literal notranslate"><span class="pre">DataTradeFileSys.addDatas()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeFileSys.DataTradeFileSys.addWatermark"><code class="docutils literal notranslate"><span class="pre">DataTradeFileSys.addWatermark()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeFileSys.DataTradeFileSys.addWatermarks"><code class="docutils literal notranslate"><span class="pre">DataTradeFileSys.addWatermarks()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeFileSys.DataTradeFileSys.disconnect"><code class="docutils literal notranslate"><span class="pre">DataTradeFileSys.disconnect()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeFileSys.DataTradeFileSys.queryData"><code class="docutils literal notranslate"><span class="pre">DataTradeFileSys.queryData()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeFileSys.DataTradeFileSys.queryDataset"><code class="docutils literal notranslate"><span class="pre">DataTradeFileSys.queryDataset()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeFileSys.DataTradeFileSys.queryWatermark"><code class="docutils literal notranslate"><span class="pre">DataTradeFileSys.queryWatermark()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mysql_for_dataTrade</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">DataTradeFileSys module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/rst/DataTradeFileSys.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-DataTradeFileSys">
+<span id="datatradefilesys-module"></span><h1>DataTradeFileSys module<a class="headerlink" href="#module-DataTradeFileSys" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="DataTradeFileSys.DataTradeFileSys">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DataTradeFileSys.</span></span><span class="sig-name descname"><span class="pre">DataTradeFileSys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'localhost'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'root'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'root'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DataTrade'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeFileSys.DataTradeFileSys" title="Link to this definition"></a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>DataTradeFileSys初始化函数，创建与DataTrade数据库的连接</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DataTradeFileSys.DataTradeFileSys.host">
+<span class="sig-name descname"><span class="pre">host</span></span><a class="headerlink" href="#DataTradeFileSys.DataTradeFileSys.host" title="Link to this definition"></a></dt>
+<dd><p>MySQL数据库地址</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DataTradeFileSys.DataTradeFileSys.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#DataTradeFileSys.DataTradeFileSys.user" title="Link to this definition"></a></dt>
+<dd><p>MySQL用户名</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DataTradeFileSys.DataTradeFileSys.password">
+<span class="sig-name descname"><span class="pre">password</span></span><a class="headerlink" href="#DataTradeFileSys.DataTradeFileSys.password" title="Link to this definition"></a></dt>
+<dd><p>MySQL密码</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DataTradeFileSys.DataTradeFileSys.database">
+<span class="sig-name descname"><span class="pre">database</span></span><a class="headerlink" href="#DataTradeFileSys.DataTradeFileSys.database" title="Link to this definition"></a></dt>
+<dd><p>DataTrade数据库名</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Dependencies:</dt><dd><p>pymysql
+numpy</p>
+</dd>
+</dl>
+<p class="rubric">备注</p>
+<p>现有文件读写使用Python默认格式，不依赖于文件类型，后续可能需结合平台的文件处理需求调整文件读写的格式</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeFileSys.DataTradeFileSys.addData">
+<span class="sig-name descname"><span class="pre">addData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datasetID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataInfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'../FileSys/Data'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeFileSys.DataTradeFileSys.addData" title="Link to this definition"></a></dt>
+<dd><p>在文件系统中存入数据文件，并在SQL数据库中存入对应的数据描述信息</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>content</strong> – 数据内容</p></li>
+<li><p><strong>dataID</strong> – 数据ID</p></li>
+<li><p><strong>dataType</strong> – 数据类型（0：图像，1：文本，2：表格，3：视频，4：模型）</p></li>
+<li><p><strong>datasetID</strong> – 数据集ID</p></li>
+<li><p><strong>dataInfo</strong> – 数据额外信息</p></li>
+<li><p><strong>path</strong> – 待写入的文件夹路径</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeFileSys.DataTradeFileSys.addDatas">
+<span class="sig-name descname"><span class="pre">addDatas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contents</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataIDs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataTypes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datasetIDs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataInfos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'../FileSys/Data'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeFileSys.DataTradeFileSys.addDatas" title="Link to this definition"></a></dt>
+<dd><p>在文件系统中存入多个数据文件，并在SQL数据库中存入对应的多个数据描述信息</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>contents</strong> – 数据内容数组</p></li>
+<li><p><strong>dataIDs</strong> – 数据ID数组</p></li>
+<li><p><strong>dataTypes</strong> – 数据类型数组</p></li>
+<li><p><strong>datasetIDs</strong> – 数据集ID数组</p></li>
+<li><p><strong>dataInfos</strong> – 数据描述信息数组</p></li>
+<li><p><strong>path</strong> – 待写入的文件夹路径</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeFileSys.DataTradeFileSys.addWatermark">
+<span class="sig-name descname"><span class="pre">addWatermark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authorizedUserID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authorizedDataID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">watermarkInfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'../FileSys/Watermark'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeFileSys.DataTradeFileSys.addWatermark" title="Link to this definition"></a></dt>
+<dd><p>在文件系统中存入水印文件，并在SQL数据库中存入对应的水印描述信息</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>content</strong> – 水印内容</p></li>
+<li><p><strong>authorizedUserID</strong> – 授权用户ID</p></li>
+<li><p><strong>authorizedDataID</strong> – 授权数据ID</p></li>
+<li><p><strong>watermarkInfo</strong> – 水印信息</p></li>
+<li><p><strong>path</strong> – 待写入的文件夹路径</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeFileSys.DataTradeFileSys.addWatermarks">
+<span class="sig-name descname"><span class="pre">addWatermarks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contents</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authorizedUserIDs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authorizedDataIDs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">watermarkInfos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'../FileSys/Watermark'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeFileSys.DataTradeFileSys.addWatermarks" title="Link to this definition"></a></dt>
+<dd><p>在文件系统中存入多个水印文件，并在SQL数据库中存入对应的多个水印描述信息</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>contents</strong> – 水印内容数组</p></li>
+<li><p><strong>authorizedUserIDs</strong> – 授权用户ID数组</p></li>
+<li><p><strong>authorizedDataIDs</strong> – 授权数据ID数组</p></li>
+<li><p><strong>watermarkInfos</strong> – 水印信息数组</p></li>
+<li><p><strong>path</strong> – 待写入的文件夹路径</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeFileSys.DataTradeFileSys.disconnect">
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeFileSys.DataTradeFileSys.disconnect" title="Link to this definition"></a></dt>
+<dd><p>断开MySQL连接</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeFileSys.DataTradeFileSys.queryData">
+<span class="sig-name descname"><span class="pre">queryData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columnNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'../FileSys/Data'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeFileSys.DataTradeFileSys.queryData" title="Link to this definition"></a></dt>
+<dd><p>查询数据表Data中dataID对应数据</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataID</strong> – 待查询的数据ID，若为空，查询所有ID</p></li>
+<li><p><strong>columnNames</strong> – 待查询的列名数组，若为空，查询所有列</p></li>
+<li><p><strong>path</strong> – 待查询的文件夹路径</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>(results, contents)，其中results为SQL中columNames对应的数据描述信息数组，contents为查询到的数据内容数组</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeFileSys.DataTradeFileSys.queryDataset">
+<span class="sig-name descname"><span class="pre">queryDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasetID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columnNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'../FileSys/Data'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeFileSys.DataTradeFileSys.queryDataset" title="Link to this definition"></a></dt>
+<dd><p>查询数据表Data中datasetID对应数据</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datasetID</strong> – 待查询的数据集ID，若为空，查询所有ID</p></li>
+<li><p><strong>columnNames</strong> – 待查询的列名数组，若为空，查询所有列</p></li>
+<li><p><strong>path</strong> – 待查询的文件夹路径</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>(results, contents)，其中results为SQL中columNames对应的数据描述信息数组，contents为查询到的数据内容数组</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeFileSys.DataTradeFileSys.queryWatermark">
+<span class="sig-name descname"><span class="pre">queryWatermark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">authorizedUserID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authorizedDataID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columnNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'../FileSys/Data'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeFileSys.DataTradeFileSys.queryWatermark" title="Link to this definition"></a></dt>
+<dd><p>查询数据表Watermark中authorizedUserID与authorizedDataID对应数据</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>authorizedUserID</strong> – 待查询的授权用户的ID，若为空，查询所有ID</p></li>
+<li><p><strong>authorizedDataID</strong> – 待查询的授权数据的ID，若为空，查询所有ID</p></li>
+<li><p><strong>columnNames</strong> – 待查询的列名数组，若为空，查询所有列</p></li>
+<li><p><strong>path</strong> – 待查询的文件夹路径</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>(results, contents)，其中results为SQL中columNames对应的水印描述信息数组，contents为查询到的水印内容数组</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2024, Jiandong Liu。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DataTradeSQL module &mdash; mysql_for_dataTrade 1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f115507d"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=beaddf03"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mysql_for_dataTrade
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">DataTradeSQL module</a><ul>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL</span></code></a><ul>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.host"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.host</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.user"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.user</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.password"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.password</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.database"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.database</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.addAuthorizedData"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.addAuthorizedData()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.addAuthorizedDatas"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.addAuthorizedDatas()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.addAuthorizedDataset"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.addAuthorizedDataset()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.addConfirmedData"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.addConfirmedData()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.addConfirmedDatas"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.addConfirmedDatas()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.addConfirmedDataset"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.addConfirmedDataset()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.addData"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.addData()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.addDatas"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.addDatas()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.addUser"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.addUser()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.addUsers"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.addUsers()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.addWatermark"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.addWatermark()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.addWatermarks"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.addWatermarks()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.disconnect"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.disconnect()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.queryAuthorizedData"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.queryAuthorizedData()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.queryAuthorizedDataset"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.queryAuthorizedDataset()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.queryConfirmedData"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.queryConfirmedData()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.queryConfirmedDataset"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.queryConfirmedDataset()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.queryData"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.queryData()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.queryDataset"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.queryDataset()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.queryUser"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.queryUser()</span></code></a></li>
+<li><a class="reference internal" href="#DataTradeSQL.DataTradeSQL.queryWatermark"><code class="docutils literal notranslate"><span class="pre">DataTradeSQL.queryWatermark()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mysql_for_dataTrade</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">DataTradeSQL module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/rst/DataTradeSQL.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-DataTradeSQL">
+<span id="datatradesql-module"></span><h1>DataTradeSQL module<a class="headerlink" href="#module-DataTradeSQL" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DataTradeSQL.</span></span><span class="sig-name descname"><span class="pre">DataTradeSQL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'localhost'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'root'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'root'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DataTrade'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL" title="Link to this definition"></a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>DataTrade操作类</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.host">
+<span class="sig-name descname"><span class="pre">host</span></span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.host" title="Link to this definition"></a></dt>
+<dd><p>MySQL数据库地址</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.user" title="Link to this definition"></a></dt>
+<dd><p>MySQL用户名</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.password">
+<span class="sig-name descname"><span class="pre">password</span></span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.password" title="Link to this definition"></a></dt>
+<dd><p>MySQL密码</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.database">
+<span class="sig-name descname"><span class="pre">database</span></span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.database" title="Link to this definition"></a></dt>
+<dd><p>DataTrade数据库名</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Dependencies:</dt><dd><p>pymysql
+numpy</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.addAuthorizedData">
+<span class="sig-name descname"><span class="pre">addAuthorizedData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isAuthorized</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.addAuthorizedData" title="Link to this definition"></a></dt>
+<dd><p>添加授权数据</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataID</strong> – 数据ID</p></li>
+<li><p><strong>userID</strong> – 用户ID</p></li>
+<li><p><strong>isAuthorized</strong> – 是否授权（默认为False）</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.addAuthorizedDatas">
+<span class="sig-name descname"><span class="pre">addAuthorizedDatas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataIDs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userIDs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isAuthorizeds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.addAuthorizedDatas" title="Link to this definition"></a></dt>
+<dd><p>添加多条授权数据</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataIDs</strong> – 数据ID数组</p></li>
+<li><p><strong>userIDs</strong> – 用户ID数组</p></li>
+<li><p><strong>isAuthorizeds</strong> – 是否授权数组（默认为False）</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.addAuthorizedDataset">
+<span class="sig-name descname"><span class="pre">addAuthorizedDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasetID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isAuthorized</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.addAuthorizedDataset" title="Link to this definition"></a></dt>
+<dd><p>添加授权数据集</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datasetID</strong> – 数据集ID</p></li>
+<li><p><strong>userID</strong> – 用户ID</p></li>
+<li><p><strong>isAuthorized</strong> – 是否授权（默认为False）</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.addConfirmedData">
+<span class="sig-name descname"><span class="pre">addConfirmedData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isConfirmed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.addConfirmedData" title="Link to this definition"></a></dt>
+<dd><p>添加确权数据</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataID</strong> – 数据ID</p></li>
+<li><p><strong>userID</strong> – 用户ID</p></li>
+<li><p><strong>isConfirmed</strong> – 是否确权（默认为False）</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.addConfirmedDatas">
+<span class="sig-name descname"><span class="pre">addConfirmedDatas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataIDs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userIDs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isConfirmeds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.addConfirmedDatas" title="Link to this definition"></a></dt>
+<dd><p>添加多条确权数据</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataIDs</strong> – 数据ID数组</p></li>
+<li><p><strong>userIDs</strong> – 用户ID数组</p></li>
+<li><p><strong>isConfirmeds</strong> – 是够确权数组（默认为False）</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.addConfirmedDataset">
+<span class="sig-name descname"><span class="pre">addConfirmedDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasetID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isConfirmed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.addConfirmedDataset" title="Link to this definition"></a></dt>
+<dd><p>添加确权数据集</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datasetID</strong> – 数据集ID</p></li>
+<li><p><strong>userID</strong> – 用户ID</p></li>
+<li><p><strong>isConfirmed</strong> – 是否确权（默认为False）</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.addData">
+<span class="sig-name descname"><span class="pre">addData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datasetID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataInfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.addData" title="Link to this definition"></a></dt>
+<dd><p>添加数据</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataID</strong> – 数据ID</p></li>
+<li><p><strong>dataType</strong> – 数据类型（0：图像，1：文本，2：表格，3：视频，4：模型）</p></li>
+<li><p><strong>datasetID</strong> – 数据集ID</p></li>
+<li><p><strong>dataInfo</strong> – 数据额外信息</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.addDatas">
+<span class="sig-name descname"><span class="pre">addDatas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataIDs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataTypes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datasetIDs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataInfos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.addDatas" title="Link to this definition"></a></dt>
+<dd><p>添加多条数据</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataIDs</strong> – 数据ID数组</p></li>
+<li><p><strong>dataTypes</strong> – 数据类型数组</p></li>
+<li><p><strong>datasetIDs</strong> – 数据集ID数组</p></li>
+<li><p><strong>dataInfos</strong> – 数据额外信息数组</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.addUser">
+<span class="sig-name descname"><span class="pre">addUser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.addUser" title="Link to this definition"></a></dt>
+<dd><p>添加用户</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ID</strong> – 用户ID</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.addUsers">
+<span class="sig-name descname"><span class="pre">addUsers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">IDs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.addUsers" title="Link to this definition"></a></dt>
+<dd><p>添加多个用户</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>IDs</strong> – 多用户ID构成的数组</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.addWatermark">
+<span class="sig-name descname"><span class="pre">addWatermark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">authorizedUserID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authorizedDataID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">watermarkInfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.addWatermark" title="Link to this definition"></a></dt>
+<dd><p>添加水印数据</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>authorizedUserID</strong> – 授权用户ID</p></li>
+<li><p><strong>authorizedDataID</strong> – 授权数据ID</p></li>
+<li><p><strong>watermarkInfo</strong> – 水印信息</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.addWatermarks">
+<span class="sig-name descname"><span class="pre">addWatermarks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">authorizedUserIDs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authorizedDataIDs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">watermarkInfos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.addWatermarks" title="Link to this definition"></a></dt>
+<dd><p>添加多条水印</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>authorizedUserIDs</strong> – 授权用户ID数组</p></li>
+<li><p><strong>authorizedDataIDs</strong> – 授权数据ID数组</p></li>
+<li><p><strong>watermarkInfos</strong> – 水印信息数组</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.disconnect">
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.disconnect" title="Link to this definition"></a></dt>
+<dd><p>断开MySQL连接</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.queryAuthorizedData">
+<span class="sig-name descname"><span class="pre">queryAuthorizedData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columnNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.queryAuthorizedData" title="Link to this definition"></a></dt>
+<dd><p>查询AuthorizedData中授权数据的记录</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataID</strong> – 待查询的数据ID，若为空，查询所有ID</p></li>
+<li><p><strong>userID</strong> – 待查询的用户ID，若为空，查询所有ID</p></li>
+<li><p><strong>columnNames</strong> – 待查询的列名数组，若为空，查询所有列</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>返回AuthorizedData数据表中查询结果</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.queryAuthorizedDataset">
+<span class="sig-name descname"><span class="pre">queryAuthorizedDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">userID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datasetID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columnNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.queryAuthorizedDataset" title="Link to this definition"></a></dt>
+<dd><p>查询AuthorizedData中授权数据的记录</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datasetID</strong> – 待查询的数据集ID，若为空，查询所有ID</p></li>
+<li><p><strong>userID</strong> – 待查询的用户ID，若为空，查询所有ID</p></li>
+<li><p><strong>columnNames</strong> – 待查询的列名数组，若为空，查询所有列</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>返回AuthorizedData数据表中查询结果</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.queryConfirmedData">
+<span class="sig-name descname"><span class="pre">queryConfirmedData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columnNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.queryConfirmedData" title="Link to this definition"></a></dt>
+<dd><p>查询ConfirmedData中确权数据的记录</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataID</strong> – 待查询的数据ID，若为空，查询所有ID</p></li>
+<li><p><strong>userID</strong> – 待查询的用户ID，若为空，查询所有ID</p></li>
+<li><p><strong>columnNames</strong> – 待查询的列名数组，若为空，查询所有列</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>返回ConfirmedData数据表中查询结果</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.queryConfirmedDataset">
+<span class="sig-name descname"><span class="pre">queryConfirmedDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">userID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datasetID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columnNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.queryConfirmedDataset" title="Link to this definition"></a></dt>
+<dd><p>查询ConfirmedData中确权数据的记录</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datasetID</strong> – 待查询的数据集ID，若为空，查询所有ID</p></li>
+<li><p><strong>userID</strong> – 待查询的用户ID，若为空，查询所有ID</p></li>
+<li><p><strong>columnNames</strong> – 待查询的列名数组，若为空，查询所有列</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>返回ConfirmedData数据表中查询结果</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.queryData">
+<span class="sig-name descname"><span class="pre">queryData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columnNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.queryData" title="Link to this definition"></a></dt>
+<dd><p>查询数据表Data中dataID对应数据</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataID</strong> – 待查询的数据ID，若为空，查询所有ID</p></li>
+<li><p><strong>columnNames</strong> – 待查询的列名数组，若为空，查询所有列</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>返回Data中的查询结果</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.queryDataset">
+<span class="sig-name descname"><span class="pre">queryDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasetID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columnNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.queryDataset" title="Link to this definition"></a></dt>
+<dd><p>查询Data数据表中的数据集</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datasetID</strong> – 待查询的数据集ID，若为空，查询所有ID</p></li>
+<li><p><strong>columnNames</strong> – 待查询的列名数组，若为空，查询所有列</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>返回Data中的数据集查询结果</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.queryUser">
+<span class="sig-name descname"><span class="pre">queryUser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.queryUser" title="Link to this definition"></a></dt>
+<dd><p>查询用户数据表User</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ID</strong> – 待查询的用户ID，若为空，查询所有ID</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>返回User中的查询结果ID</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DataTradeSQL.DataTradeSQL.queryWatermark">
+<span class="sig-name descname"><span class="pre">queryWatermark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">authorizedUserID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authorizedDataID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columnNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataTradeSQL.DataTradeSQL.queryWatermark" title="Link to this definition"></a></dt>
+<dd><p>查询Watermark数据表中记录</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>authorizedUserID</strong> – 待查询的授权用户的ID，若为空，查询所有ID</p></li>
+<li><p><strong>authorizedDataID</strong> – 待查询的授权数据的ID，若为空，查询所有ID</p></li>
+<li><p><strong>columnNames</strong> – 待查询的列名数组，若为空，查询所有列</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>返回Watermark数据表中查询结果</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2024, Jiandong Liu。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
